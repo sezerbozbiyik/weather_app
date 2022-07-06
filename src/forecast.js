@@ -2,13 +2,13 @@ class Forecast {
   constructor() {
     this.apikey = "8WAuAdA5b2SSMD8ggspdjzJpDJ02GdQ1";
     this.cityApi =
-      "http://dataservice.accuweather.com/locations/v1/cities/search";
+      "https://dataservice.accuweather.com/locations/v1/cities/search";
     this.weatherApi =
-      "http://dataservice.accuweather.com/currentconditions/v1/";
+      "https://dataservice.accuweather.com/currentconditions/v1/";
     this.currentWeatherApi =
-      "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
+      "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
     this.oneDayWeatherApi =
-      "http://dataservice.accuweather.com/forecasts/v1/daily/1day/";
+      "https://dataservice.accuweather.com/forecasts/v1/daily/1day/";
   }
 
   async getGeoCity(lat, lon) {
