@@ -1,8 +1,9 @@
 import Forecast from "./forecast";
-
+import format from "date-fns/format";
 const forecast = new Forecast();
 
 // dom elements
+const weatherIcon=document.querySelector('.isDay img');
 const dateTime = document.querySelector(".dateTime");
 const temp = document.querySelector(".temp");
 const weatherCon = document.querySelector(".desc");
@@ -22,10 +23,15 @@ const updateUI = (data) => {
   const { cityDto, oneDayWeather, weatherDto } = data;
 
   const now = new Date();
+  const day = format(now, "EEEE");
+  const time = format(now, "HH") + ":" + format(now, "mm");
 
   //dom manipulation
-  temp.innerHTML = `${Math.round(weatherDto.Temperature.Metric.Value)}<sup>&deg;C</sup>`;
-  weatherCon.innerHTML = `<img src="img/weather/${weatherDto.WeatherText}.png" height="20" alt="">
+  dateTime.innerHTML = `${day}, <span>${time}</span>`;
+  temp.innerHTML = `${Math.round(
+    weatherDto.Temperature.Metric.Value
+  )}<sup>&deg;C</sup>`;
+  weatherCon.innerHTML = `<img src="img/weather/${weatherDto.WeatherIcon}.png" height="20" alt="">
   ${weatherDto.WeatherText}`;
   uvText.textContent = weatherDto.UVIndex;
   windRate.innerHTML = `${weatherDto.Wind.Speed.Metric.Value} <span>km/h</span>`;
@@ -34,12 +40,13 @@ const updateUI = (data) => {
   cityName.textContent = `${
     cityDto.SupplementalAdminAreas.length > 0
       ? cityDto.SupplementalAdminAreas[0].EnglishName
-      : ''
+      : ""
   }(${cityDto.EnglishName}), ${cityDto.AdministrativeArea.EnglishName}, ${
     cityDto.Country.EnglishName
   }`;
   humidity.innerHTML = `${weatherDto.RelativeHumidity} <sup>&percnt;</sup>`;
   visibility.innerHTML = `${weatherDto.Visibility.Metric.Value} <span>km</span>`;
+  weatherIcon.setAttribute('src','img/weather/'+weatherDto.WeatherIcon+'.png')
 
   if (weatherDto.IsDayTime) {
     isDayImg.setAttribute("src", "img/day.svg");
