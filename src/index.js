@@ -25,7 +25,7 @@ const updateUI = (data) => {
 
   //dom manipulation
   temp.innerHTML = `${Math.round(weatherDto.Temperature.Metric.Value)}<sup>&deg;C</sup>`;
-  weatherCon.innerHTML = `<img src="/img/weather/${weatherDto.WeatherText}.png" height="20" alt="">
+  weatherCon.innerHTML = `<img src="img/weather/${weatherDto.WeatherText}.png" height="20" alt="">
   ${weatherDto.WeatherText}`;
   uvText.textContent = weatherDto.UVIndex;
   windRate.innerHTML = `${weatherDto.Wind.Speed.Metric.Value} <span>km/h</span>`;
@@ -42,11 +42,11 @@ const updateUI = (data) => {
   visibility.innerHTML = `${weatherDto.Visibility.Metric.Value} <span>km</span>`;
 
   if (weatherDto.IsDayTime) {
-    isDayImg.setAttribute("src", "/img/day.svg");
+    isDayImg.setAttribute("src", "img/day.svg");
     cityName.classList.remove("img-text-light");
     cityName.classList.add("img-text-dark");
   } else {
-    isDayImg.setAttribute("src", "/img/night.svg");
+    isDayImg.setAttribute("src", "img/night.svg");
     cityName.classList.remove("img-text-dark");
     cityName.classList.add("img-text-light");
   }
