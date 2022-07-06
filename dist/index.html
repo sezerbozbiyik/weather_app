@@ -1,0 +1,149 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+
+    <div class="mainCard">
+        <div class="leftSide">
+            <div class="searchBox">
+                <img src="/img/searchIcon.png" height="20">
+                <form id="search">
+                    <input type="text" id="search" name="search" autocomplete="off" placeholder="Search for places ...">
+                </form>
+                <div class="locationBtn">
+                    <img src="/img/locations.png" height="12">
+                </div>
+            </div>
+            <div class="isDay">
+                <img src="/img/weather/rainy.png" width="100%">
+            </div>
+            <div class="temp"><sup>&deg;C</sup> </div>
+            <div class="dateTime">Monday, <span>16:00</span></div>
+            <div class="weatherDesc">
+                <div class="desc">
+                    <img src="/img/cloud.png" height="20" alt="">
+
+                </div>
+                <div class="desc"><img src="/img/water-drop.png" height="20" alt="">Rain -<span></span></div>
+            </div>
+            <div class="location">
+                <img src="http://via.placeholder.com/222x100" height="100" width="100%">
+                <div class="img-text"></div>
+            </div>
+        </div>
+        <div class="rightSide">
+            <div class="week">
+                <span>Week</span>
+                <div class="week-cards">
+                    <div class="card-sm">
+                        <span class="card-sm-title">Sun</span>
+                        <img src="/img/weather/sunny.png" height="35" alt="">
+                        <span class="card-sm-footer">15&deg; <span class="text-muted">3&deg;</span> </span>
+                    </div>
+                    <div class="card-sm">
+                        <span class="card-sm-title">Mon</span>
+                        <img src="/img/weather/rainy.png" height="35" alt="">
+                        <span class="card-sm-footer">15&deg; <span class="text-muted">3&deg;</span> </span>
+                    </div>
+                    <div class="card-sm">
+                        <span class="card-sm-title">Tue</span>
+                        <img src="/img/weather/rainy-day.png" height="35" alt="">
+                        <span class="card-sm-footer">15&deg; <span class="text-muted">3&deg;</span> </span>
+                    </div>
+                    <div class="card-sm">
+                        <span class="card-sm-title">Wed</span>
+                        <img src="/img/weather/downpour.png" height="35" alt="">
+                        <span class="card-sm-footer">15&deg; <span class="text-muted">3&deg;</span> </span>
+                    </div>
+                    <div class="card-sm">
+                        <span class="card-sm-title">Thu</span>
+                        <img src="/img/weather/windy.png" height="35" alt="">
+                        <span class="card-sm-footer">15&deg; <span class="text-muted">3&deg;</span> </span>
+                    </div>
+                    <div class="card-sm">
+                        <span class="card-sm-title">Fri</span>
+                        <img src="/img/weather/clear-sky.png" height="35" alt="">
+                        <span class="card-sm-footer">15&deg; <span class="text-muted">3&deg;</span> </span>
+                    </div>
+                    <div class="card-sm">
+                        <span class="card-sm-title">Sat</span>
+                        <img src="/img/weather/sunny.png" height="35" alt="">
+                        <span class="card-sm-footer">15&deg; <span class="text-muted">3&deg;</span> </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="today">
+                <span>Today's Highlights</span>
+                <div class="today-cards">
+                    <div class="card-md uv">
+                        <div class="card-md-title">Uv Index</div>
+                        <div class="card-md-body"></div>
+                    </div>
+                    <div class="card-md wind">
+                        <div class="card-md-title">Wind Status</div>
+                        <div class="card-md-body"></div>
+                        <div class="card-md-footer">
+                            <img src="/img/windyLocation.png" height="20">
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="card-md sunrise-sunset">
+                        <div class="card-md-title">Sunrise & Sunset</div>
+                        <div class="card-md-body">
+                            <div class="sunrise">
+                                <img src="/img/sunrise.png" height="35" alt="sunries">
+                                <div class="sunrise-text">
+                                    <span>6.35 AM</span>
+                                    <span>- 1m 46s</span>
+                                </div>
+                            </div>
+                            <div class="sunset">
+                                <img src="/img/sunset.png" height="35" alt="sunset">
+                                <div class="sunset-text">
+                                    <span>5.42 PM</span>
+                                    <span>+ 2m 22s</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-md-footer"></div>
+                    </div>
+                    <div class="card-md humidity">
+                        <div class="card-md-title">Humidity</div>
+                        <div class="card-md-body">
+
+                        </div>
+                        <div class="card-md-footer">Normal <e> &#128577; </e>
+                        </div>
+                    </div>
+                    <div class="card-md visibility">
+                        <div class="card-md-title">Visibility</div>
+                        <div class="card-md-body">
+
+                        </div>
+                        <div class="card-md-footer">Average <e> &#128577; </e>
+                        </div>
+                    </div>
+                    <div class="card-md air-con">
+                        <div class="card-md-title">Air Quality</div>
+                        <div class="card-md-body">
+                            ?
+                        </div>
+                        <div class="card-md-footer">Unhealty <e> &#128577; </e>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
