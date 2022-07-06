@@ -43,10 +43,12 @@ const updateUI = (data) => {
 
   if (weatherDto.IsDayTime) {
     isDayImg.setAttribute("src", "/img/day.svg");
-    cityName.classList.toggle("img-text-dark");
+    cityName.classList.remove("img-text-light");
+    cityName.classList.add("img-text-dark");
   } else {
     isDayImg.setAttribute("src", "/img/night.svg");
-    cityName.classList.toggle("img-text-light");
+    cityName.classList.remove("img-text-dark");
+    cityName.classList.add("img-text-light");
   }
 
   console.log(data, now.toTimeString());
