@@ -3,7 +3,7 @@ import format from "date-fns/format";
 const forecast = new Forecast();
 
 // dom elements
-const weatherIcon=document.querySelector('.isDay img');
+const weatherIcon = document.querySelector(".isDay img");
 const dateTime = document.querySelector(".dateTime");
 const temp = document.querySelector(".temp");
 const weatherCon = document.querySelector(".desc");
@@ -46,7 +46,10 @@ const updateUI = (data) => {
   }`;
   humidity.innerHTML = `${weatherDto.RelativeHumidity} <sup>&percnt;</sup>`;
   visibility.innerHTML = `${weatherDto.Visibility.Metric.Value} <span>km</span>`;
-  weatherIcon.setAttribute('src','img/weather/'+weatherDto.WeatherIcon+'.png')
+  weatherIcon.setAttribute(
+    "src",
+    "img/weather/" + weatherDto.WeatherIcon + ".png"
+  );
 
   if (weatherDto.IsDayTime) {
     isDayImg.setAttribute("src", "img/day.svg");
@@ -79,24 +82,28 @@ locationBtn.addEventListener("click", () => {
 // get weather by search
 searchBox.addEventListener("submit", (e) => {
   e.preventDefault();
+  localStorage.removeItem('lat');
+  localStorage.setItem('city',e.target.search.value)
   forecast
     .updateCityByName(e.target.search.value)
     .then((data) => updateUI(data))
     .catch((err) => console.log(err));
+  searchBox.reset();
+  location.reload();
 });
 
 // // local storage update UI
-// if (localStorage.getItem("lat") && localStorage.getItem("lon")) {
-//   forecast
-//     .updateCityByLocation(
-//       localStorage.getItem("lat"),
-//       localStorage.getItem("lon")
-//     )
-//     .then((data) => updateUI(data))
-//     .catch((err) => console.log(err));
-// } else if (localStorage.getItem("city")) {
-//   forecast
-//     .updateCityByName(localStorage.getItem("city"))
-//     .then((data) => updateUI(data))
-//     .catch((err) => console.log(err));
-// }
+if (localStorage.getItem("lat") && localStorage.getItem("lon")) {
+  forecast
+    .updateCityByLocation(
+      localStorage.getItem("lat"),
+      localStorage.getItem("lon")
+    )
+    .then((data) => updateUI(data))
+    .catch((err) => console.log(err));
+} else if (localStorage.getItem("city")) {
+  forecast
+    .updateCityByName(localStorage.getItem("city"))
+    .then((data) => updateUI(data))
+    .catch((err) => console.log(err));
+}
