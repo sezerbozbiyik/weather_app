@@ -1,6 +1,6 @@
 class Forecast {
   constructor() {
-    this.apikey = "UkGBeo0pMytGsUBGhspg0hDhhWCIjxGT";
+    this.apikey = "pGobsehK8oZdGGdyObNoQyTdUcR6LUIK";
     this.cityApi =
       "https://dataservice.accuweather.com/locations/v1/cities/search";
     this.weatherApi =
