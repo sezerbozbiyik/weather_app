@@ -10,7 +10,7 @@ class Forecast {
     this.oneDayWeatherApi =
       "https://dataservice.accuweather.com/forecasts/v1/daily/1day/";
     this.fiveDayWeatherApi =
-      "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+      "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
   }
 
   async getFiveDayWeather(cityKey) {
