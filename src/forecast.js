@@ -1,6 +1,6 @@
 class Forecast {
   constructor() {
-    this.apikey = "xYMoaMnL9XXXJkGN16ds8DLsH4YyHMN2";
+    this.apikey = "UkGBeo0pMytGsUBGhspg0hDhhWCIjxGT";
     this.cityApi =
       "https://dataservice.accuweather.com/locations/v1/cities/search";
     this.weatherApi =
@@ -9,6 +9,18 @@ class Forecast {
       "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
     this.oneDayWeatherApi =
       "https://dataservice.accuweather.com/forecasts/v1/daily/1day/";
+    this.fiveDayWeatherApi =
+      "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+  }
+
+  async getFiveDayWeather(cityKey) {
+    const response = await fetch(
+      this.fiveDayWeatherApi +
+        cityKey +
+        `?apikey=${this.apikey}&details=true&metric=true`
+    );
+    const data = await response.json(response);
+    return data.DailyForecasts;
   }
 
   async getGeoCity(lat, lon) {
@@ -31,7 +43,7 @@ class Forecast {
     const response = await fetch(
       this.weatherApi + cityKey + `?apikey=${this.apikey}&details=true`
     );
-    const data = await response.json();
+    const data = await response.json(response);
     return data[0];
   }
   async getOneDayWeather(cityKey) {
@@ -40,7 +52,7 @@ class Forecast {
         cityKey +
         `?apikey=${this.apikey}&details=true&metric=true`
     );
-    const data = await response.json();
+    const data = await response.json(response);
     return data.DailyForecasts[0];
   }
 
@@ -48,14 +60,16 @@ class Forecast {
     const cityDto = await this.getCity(city);
     const oneDayWeather = await this.getOneDayWeather(cityDto.Key);
     const weatherDto = await this.getWeather(cityDto.Key);
-    return { cityDto, oneDayWeather, weatherDto };
+    const fiveDayWeather=await this.getFiveDayWeather(cityDto.Key);
+    return { cityDto, oneDayWeather, weatherDto ,fiveDayWeather};
   }
 
   async updateCityByLocation(lat, lon) {
     const cityDto = await this.getGeoCity(lat, lon);
     const oneDayWeather = await this.getOneDayWeather(cityDto.Key);
     const weatherDto = await this.getWeather(cityDto.Key);
-    return { cityDto, oneDayWeather, weatherDto };
+    const fiveDayWeather = await this.getFiveDayWeather(cityDto.Key);
+    return { cityDto, oneDayWeather, weatherDto, fiveDayWeather};
   }
 }
 

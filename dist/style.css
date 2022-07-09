@@ -50,11 +50,14 @@ form > input {
   width: 100%;
   height: 100%;
 }
-/*
+form>input:focus{
+  outline: none;
+}
+
 form > input::placeholder {
   color: black;
   font-weight: 400;
-}*/
+}
 .locationBtn {
   width: 20px;
   height: 100%;
@@ -110,8 +113,11 @@ form > input::placeholder {
 }
 .location {
   position: relative;
+  width: 100%;
 }
 .location > img {
+  width: 100%;
+  height: 140px;
   border-radius: 15px;
   object-fit: cover;
 }
