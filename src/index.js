@@ -27,7 +27,7 @@ const weekCards = document.querySelector(".week-cards");
 // change UI by
 const updateUI = (data) => {
   // create manipule variables
-  const { cityDto, oneDayWeather, weatherDto,fiveDayWeather } = data;
+  const { cityDto, oneDayWeather, weatherDto, fiveDayWeather } = data;
   const now = new Date(weatherDto.LocalObservationDateTime.slice(0, 19));
   const day = format(now, "EEEE");
   const time = format(now, "HH") + ":" + format(now, "mm");
@@ -35,9 +35,9 @@ const updateUI = (data) => {
   const sunriseTime = new Date(oneDayWeather.Sun.Rise.slice(0, 19));
 
   //dom manipulation
-  
+
   createFiveDayHtml(fiveDayWeather);
-  
+
   sunrise.textContent = format(sunriseTime, "p");
   sunriseInterval.textContent = getSunriseTime(sunriseTime, now);
 
@@ -156,13 +156,6 @@ const getSunriseTime = (sunrise, now) => {
     : info + intervalSunrise.minutes + "m";
 };
 
-// forecast
-//   .getFiveDayWeather(3558515)
-//   .then((d) => {
-//     console.log(d);
-//     createFiveDayHtml(d);
-//   })
-//   .catch((err) => console.log(err));
 
 // create 5 day html template
 const createFiveDayHtml = (data) => {
